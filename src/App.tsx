@@ -2,7 +2,7 @@ import React from "react";
 import { Header, Banner } from "./components/index";
 import "./App.css";
 import { Col, Container, Row } from "react-bootstrap";
-import { ProfitCalc } from "./components/ProfitCalc";
+import { ProfitTable } from "./components/ProfitTable";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           <div className='App'>
             <Banner />
             <Header />
-            <ProfitCalc></ProfitCalc>
+            <ProfitTable></ProfitTable>
           </div>
         </Col>
       </Row>

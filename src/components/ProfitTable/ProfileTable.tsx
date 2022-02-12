@@ -1,12 +1,12 @@
 import React from "react";
 
 import Table from "react-bootstrap/Table";
-import "./ProfitCalc.styles.css";
+import "./ProfitTable.styles.css";
 import * as CONSTANTS from "./constants";
 import { Container } from "react-bootstrap";
 import { ProfitDisplay } from "../ProfitDisplay";
 
-export const ProfitCalc = () => {
+export const ProfitTable = () => {
   return (
     <Container>
       <Table striped bordered hover className={CONSTANTS.TABLE_TEST_ID}>
