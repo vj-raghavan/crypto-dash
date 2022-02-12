@@ -10,4 +10,5 @@ const config: Config.InitialOptions = {
     "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.ts",
   },
 };
+
 export default config;
