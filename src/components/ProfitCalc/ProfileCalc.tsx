@@ -4,6 +4,8 @@ import Table from "react-bootstrap/Table";
 import "./ProfitCalc.styles.css";
 import * as CONSTANTS from "./constants";
 import { Container } from "react-bootstrap";
+import { ProfitDisplay } from "../ProfitDisplay";
+
 export const ProfitCalc = () => {
   return (
     <Container>
@@ -30,7 +32,7 @@ export const ProfitCalc = () => {
             <td>$67.95 @ 11:45 AM</td>
           </tr>
           <tr>
-            <td colSpan={2}>Profit : $23</td>
+            <td colSpan={2}>Profit {<ProfitDisplay dollarValue={-23} />}</td>
           </tr>
         </tbody>
       </Table>

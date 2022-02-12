@@ -11,13 +11,13 @@ export const ProfitDisplay = ({ dollarValue }: ProfitDisplayProps) => {
     return (
       <StyledH3 data-testid={PDTESTID} positiveProfit={true}>
         {" "}
-        $: {dollarValue}
+        ${dollarValue}
       </StyledH3>
     );
   }
   return (
     <StyledH3 data-testid={PDTESTID} positiveProfit={false}>
-      $: {dollarValue}
+      ${dollarValue}
     </StyledH3>
   );
 };
