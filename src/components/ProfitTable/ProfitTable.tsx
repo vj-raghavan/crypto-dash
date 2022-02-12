@@ -7,6 +7,7 @@ import { Container } from "react-bootstrap";
 import { ProfitDisplay } from "../ProfitDisplay";
 import { SellBuy, BUY, SELL } from "../SellBuy";
 import { capitaliseFirstLetter } from "../../Utils";
+
 export const ProfitTable = () => {
   return (
     <Container>
