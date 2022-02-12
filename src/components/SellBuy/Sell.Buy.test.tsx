@@ -10,7 +10,7 @@ describe("Renders Buy Sell Component without any errors", () => {
     expect(sellBuy).toHaveTextContent("9:45 AM");
   });
   it("Renders Sell text with appropriate text", () => {
-    render(<SellBuy transactionType={BUY} amount={25} time='11:45 AM' />);
+    render(<SellBuy transactionType={SELL} amount={25} time='11:45 AM' />);
     const sellBuy = screen.getByTestId(SELLBUYTESTID);
     expect(sellBuy).toHaveTextContent("25");
     expect(sellBuy).toHaveTextContent("11:45 AM");
