@@ -5,7 +5,8 @@ import "./ProfitTable.styles.css";
 import * as CONSTANTS from "./constants";
 import { Container } from "react-bootstrap";
 import { ProfitDisplay } from "../ProfitDisplay";
-import { SellBuy } from "../SellBuy";
+import { SellBuy, BUY, SELL } from "../SellBuy";
+import { capitaliseFirstLetter } from "../../Utils";
 export const ProfitTable = () => {
   return (
     <Container>
@@ -22,8 +23,12 @@ export const ProfitTable = () => {
             </td>
           </tr>
           <tr>
-            <td className={CONSTANTS.HEADER_BUY_CLASSNAME}>Buy</td>
-            <td className={CONSTANTS.HEADER_SELL_CLASSNAME}>Sell</td>
+            <td className={CONSTANTS.HEADER_BUY_CLASSNAME}>
+              {capitaliseFirstLetter(BUY)}
+            </td>
+            <td className={CONSTANTS.HEADER_SELL_CLASSNAME}>
+              {capitaliseFirstLetter(SELL)}
+            </td>
           </tr>
         </thead>
         <tbody>
