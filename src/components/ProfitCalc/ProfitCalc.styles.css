@@ -1,19 +1,19 @@
 /**
 This is just to show that CSS and styled components can be used interoperably.
 **/
-.thead-coin-name {
+.profit-calculator {
   text-align: center;
+}
+.thead-coin-name {
   font-weight: bolder;
   color: gray;
 }
 .thead-trans-date {
-  text-align: center;
   font-weight: bold;
   text-decoration: black;
 }
 .thead-buy,
 .thead-sell {
-  text-align: center;
   font-weight: bold;
   color: black;
 }

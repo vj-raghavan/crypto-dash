@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 export const ProfitCalc = () => {
   return (
     <Container>
-      <Table striped bordered hover data-test-id={CONSTANTS.TABLE_TEST_ID}>
+      <Table striped bordered hover className={CONSTANTS.TABLE_TEST_ID}>
         <thead>
           <tr>
             <td className={CONSTANTS.HEADER_COIN_CLASSNAME} colSpan={2}>
