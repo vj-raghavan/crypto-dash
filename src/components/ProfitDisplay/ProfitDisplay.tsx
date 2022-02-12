@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StyledH3 } from "./index";
+import { StyledH4 } from "./index";
 export const PDTESTID = "profit-display-text";
 
 type ProfitDisplayProps = {
@@ -9,15 +9,15 @@ type ProfitDisplayProps = {
 export const ProfitDisplay = ({ dollarValue }: ProfitDisplayProps) => {
   if (dollarValue > 0) {
     return (
-      <StyledH3 data-testid={PDTESTID} positiveProfit={true}>
+      <StyledH4 data-testid={PDTESTID} positiveProfit={true}>
         {" "}
         ${dollarValue}
-      </StyledH3>
+      </StyledH4>
     );
   }
   return (
-    <StyledH3 data-testid={PDTESTID} positiveProfit={false}>
+    <StyledH4 data-testid={PDTESTID} positiveProfit={false}>
       ${dollarValue}
-    </StyledH3>
+    </StyledH4>
   );
 };
