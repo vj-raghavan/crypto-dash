@@ -26,16 +26,11 @@ export const ProfitCalc = () => {
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>Mark</td>
+            <td>$44.95 @ 9:15 AM</td>
+            <td>$67.95 @ 11:45 AM</td>
           </tr>
           <tr>
-            <td>2</td>
-            <td>Jacob</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Larry the Bird</td>
+            <td colSpan={2}>Profit : $23</td>
           </tr>
         </tbody>
       </Table>
