@@ -5,7 +5,7 @@ import "./ProfitTable.styles.css";
 import * as CONSTANTS from "./constants";
 import { Container } from "react-bootstrap";
 import { ProfitDisplay } from "../ProfitDisplay";
-
+import { SellBuy } from "../SellBuy";
 export const ProfitTable = () => {
   return (
     <Container>
@@ -28,8 +28,24 @@ export const ProfitTable = () => {
         </thead>
         <tbody>
           <tr>
-            <td>$44.95 @ 9:15 AM</td>
-            <td>$67.95 @ 11:45 AM</td>
+            <td>
+              {
+                <SellBuy
+                  amount={45.88}
+                  time='9:45 AM'
+                  transactionType='buy'
+                ></SellBuy>
+              }
+            </td>
+            <td>
+              {
+                <SellBuy
+                  amount={65.98}
+                  time='11:45 AM'
+                  transactionType='sell'
+                ></SellBuy>
+              }
+            </td>
           </tr>
           <tr>
             <td colSpan={2}>Profit {<ProfitDisplay dollarValue={-23} />}</td>
