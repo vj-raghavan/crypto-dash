@@ -1,0 +1,5 @@
+.crypto-banner-image {
+  height: 20vh;
+  overflow: hidden;
+  object-fit: cover;
+}

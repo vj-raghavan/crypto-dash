@@ -6,7 +6,7 @@ This is just to show that CSS and styled components can be used interoperably.
 }
 .thead-coin-name {
   font-weight: bolder;
-  color: gray;
+  color: rgb(0, 0, 0);
 }
 .thead-trans-date {
   font-weight: bold;

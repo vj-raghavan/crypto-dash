@@ -5,5 +5,5 @@ import { Header, HEADER_TEST_ID } from "./index";
 test("renders learn react link", () => {
   render(<Header />);
   const headerText = screen.getByTestId(HEADER_TEST_ID);
-  expect(headerText.textContent).toBe("My Portfolio");
+  expect(headerText.textContent).toBe("Trade Simulator");
 });
