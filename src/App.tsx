@@ -12,7 +12,7 @@ function App() {
           <div className='App'>
             <Banner />
             <Header />
-            <ProfitTable></ProfitTable>
+            <ProfitTable />
           </div>
         </Col>
       </Row>

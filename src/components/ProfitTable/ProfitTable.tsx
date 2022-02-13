@@ -11,6 +11,8 @@ import {
   calculateProfitAndTimesIndex,
   convertStringAttributesToNumber,
 } from "../../Utils";
+import moment from "moment";
+
 export const ProfitTable = () => {
   return (
     <Container>
@@ -18,6 +20,7 @@ export const ProfitTable = () => {
         const { maxProfit, minIndex, maxIndex } = calculateProfitAndTimesIndex(
           convertStringAttributesToNumber(rate.quotes)
         );
+        const displayDate = moment(rate.date).format("DD/MM/YYYY");
         return (
           <Table
             key={i}
@@ -37,7 +40,7 @@ export const ProfitTable = () => {
                   className={CONSTANTS.HEADER_COIN_TRANS_CLASSNAME}
                   colSpan={2}
                 >
-                  {new Date().toLocaleDateString()}
+                  {displayDate}
                 </td>
               </tr>
               <tr>
