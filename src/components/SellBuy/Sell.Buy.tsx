@@ -4,7 +4,7 @@ export const BUY = "buy",
   SELL = "sell";
 export const SELLBUYTESTID = "sell-buy";
 type SellBuyProps = {
-  amount: number;
+  amount: string;
   time: string;
   transactionType: "buy" | "sell";
 };

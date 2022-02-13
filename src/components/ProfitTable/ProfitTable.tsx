@@ -6,58 +6,79 @@ import * as CONSTANTS from "./constants";
 import { Container } from "react-bootstrap";
 import { ProfitDisplay } from "../ProfitDisplay";
 import { SellBuy, BUY, SELL } from "../SellBuy";
-import { capitaliseFirstLetter } from "../../Utils";
-
+import {
+  capitaliseFirstLetter,
+  calculateProfitAndTimesIndex,
+  convertStringAttributesToNumber,
+} from "../../Utils";
 export const ProfitTable = () => {
   return (
     <Container>
-      <Table striped bordered hover className={CONSTANTS.TABLE_TEST_ID}>
-        <thead>
-          <tr>
-            <td className={CONSTANTS.HEADER_COIN_CLASSNAME} colSpan={2}>
-              ETH
-            </td>
-          </tr>
-          <tr>
-            <td className={CONSTANTS.HEADER_COIN_TRANS_CLASSNAME} colSpan={2}>
-              {new Date().toLocaleDateString()}
-            </td>
-          </tr>
-          <tr>
-            <td className={CONSTANTS.HEADER_BUY_CLASSNAME}>
-              {capitaliseFirstLetter(BUY)}
-            </td>
-            <td className={CONSTANTS.HEADER_SELL_CLASSNAME}>
-              {capitaliseFirstLetter(SELL)}
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              {
-                <SellBuy
-                  amount={45.88}
-                  time='9:45 AM'
-                  transactionType='buy'
-                ></SellBuy>
-              }
-            </td>
-            <td>
-              {
-                <SellBuy
-                  amount={65.98}
-                  time='11:45 AM'
-                  transactionType='sell'
-                ></SellBuy>
-              }
-            </td>
-          </tr>
-          <tr>
-            <td colSpan={2}>Profit {<ProfitDisplay dollarValue={-23} />}</td>
-          </tr>
-        </tbody>
-      </Table>
+      {CONSTANTS.rates.map((rate, i) => {
+        const { maxProfit, minIndex, maxIndex } = calculateProfitAndTimesIndex(
+          convertStringAttributesToNumber(rate.quotes)
+        );
+        return (
+          <Table
+            key={i}
+            striped
+            bordered
+            hover
+            className={CONSTANTS.TABLE_TEST_ID}
+          >
+            <thead>
+              <tr>
+                <td className={CONSTANTS.HEADER_COIN_CLASSNAME} colSpan={2}>
+                  {rate.currency}
+                </td>
+              </tr>
+              <tr>
+                <td
+                  className={CONSTANTS.HEADER_COIN_TRANS_CLASSNAME}
+                  colSpan={2}
+                >
+                  {new Date().toLocaleDateString()}
+                </td>
+              </tr>
+              <tr>
+                <td className={CONSTANTS.HEADER_BUY_CLASSNAME}>
+                  {capitaliseFirstLetter(BUY)}
+                </td>
+                <td className={CONSTANTS.HEADER_SELL_CLASSNAME}>
+                  {capitaliseFirstLetter(SELL)}
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  {
+                    <SellBuy
+                      amount={rate.quotes[minIndex].price}
+                      time={rate.quotes[minIndex].time}
+                      transactionType='buy'
+                    ></SellBuy>
+                  }
+                </td>
+                <td>
+                  {
+                    <SellBuy
+                      amount={rate.quotes[maxIndex].price}
+                      time={rate.quotes[maxIndex].time}
+                      transactionType='sell'
+                    ></SellBuy>
+                  }
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={2}>
+                  Profit {<ProfitDisplay dollarValue={maxProfit} />}
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        );
+      })}
     </Container>
   );
 };
