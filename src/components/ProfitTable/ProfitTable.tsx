@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Table from "react-bootstrap/Table";
 import "./ProfitTable.styles.css";
@@ -12,11 +12,22 @@ import {
   convertStringAttributesToNumber,
 } from "../../Utils";
 import moment from "moment";
+import IExchangeRatesData from "../../Types/exchange.rates.type";
+import ExchangeRatesService from "../../Services/exchange.rates";
 
 export const ProfitTable = () => {
+  const [rates, setRates] = useState<IExchangeRatesData[] | []>([]);
+
+  useEffect(() => {
+    async function fetchRates() {
+      const ratesData = await ExchangeRatesService.getRatesForADay();
+      setRates(ratesData.data);
+    }
+    fetchRates();
+  }, []);
   return (
     <Container>
-      {CONSTANTS.rates.map((rate, i) => {
+      {rates.map((rate, i) => {
         const { maxProfit, minIndex, maxIndex } = calculateProfitAndTimesIndex(
           convertStringAttributesToNumber(rate.quotes)
         );
