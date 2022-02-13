@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowUpCircleFill, ArrowDownCircleFill } from "react-bootstrap-icons";
+import moment from "moment";
 export const BUY = "buy",
   SELL = "sell";
 export const SELLBUYTESTID = "sell-buy";
@@ -10,6 +11,7 @@ type SellBuyProps = {
 };
 
 export const SellBuy = ({ amount, time, transactionType }: SellBuyProps) => {
+  const formattedTime = moment.unix(parseFloat(time)).format("hh:mm a");
   return (
     <div data-testid={SELLBUYTESTID}>
       {transactionType === BUY ? (
@@ -17,7 +19,7 @@ export const SellBuy = ({ amount, time, transactionType }: SellBuyProps) => {
       ) : (
         <ArrowUpCircleFill color='green' size={30} />
       )}{" "}
-      $ {amount} at {time}
+      $ {amount} at {formattedTime}
     </div>
   );
 };
