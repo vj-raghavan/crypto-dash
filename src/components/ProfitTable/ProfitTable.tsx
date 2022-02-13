@@ -20,8 +20,12 @@ export const ProfitTable = () => {
 
   useEffect(() => {
     async function fetchRates() {
-      const ratesData = await ExchangeRatesService.getRatesForADay();
-      setRates(ratesData.data);
+      try {
+        const ratesData = await ExchangeRatesService.getRatesForADay();
+        setRates(ratesData.data);
+      } catch (err) {
+        console.error("Error occurred while fetching exchange rates ", err);
+      }
     }
     fetchRates();
   }, []);
@@ -31,7 +35,9 @@ export const ProfitTable = () => {
         const { maxProfit, minIndex, maxIndex } = calculateProfitAndTimesIndex(
           convertStringAttributesToNumber(rate.quotes)
         );
-        const displayDate = moment(rate.date).format("DD/MM/YYYY");
+        const displayDate = moment
+          .unix(parseInt(rate.date))
+          .format("DD/MM/YYYY");
         return (
           <Table
             key={i}
