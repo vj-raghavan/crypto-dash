@@ -11,13 +11,13 @@ export const ProfitDisplay = ({ dollarValue }: ProfitDisplayProps) => {
     return (
       <StyledH4 data-testid={PDTESTID} positiveProfit={true}>
         {" "}
-        ${dollarValue}
+        ${dollarValue.toFixed(2)}
       </StyledH4>
     );
   }
   return (
     <StyledH4 data-testid={PDTESTID} positiveProfit={false}>
-      ${dollarValue}
+      ${dollarValue.toFixed(2)}
     </StyledH4>
   );
 };
